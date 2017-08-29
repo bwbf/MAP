@@ -1,0 +1,37 @@
+public class AviaoSingleton{
+
+	private Set<String> assentoDisponiveis;
+	private static final AviaoSingleton INSTANCE = new AviaoSingleton();
+	
+	public AviaoSingleton(){
+		assentoDisponiveis =  new HashSet<>();
+		assentoDisponiveis.add("1A");
+		assentoDisponiveis.add("1B");
+	}
+	
+	public static AviaoSingleton getINSTANCE(){
+		return INSTANCE;
+	}
+	
+	public boolean bookAssento(String assento){
+		return assentoDisponiveis.remove(assento);
+	}
+
+}
+
+
+public class TesteAviao{
+	
+	public static void main(String[] args){
+		agendarAssento("1A");
+		agendarAssento("1A");
+	}
+	
+	private static void agendarAssento(String assento){
+		AviaoSingleton a = AviaoSingleton.getINSTANCE();
+		//Agora o mesmo retona TRUE, FALSE
+		a.bookAssento(assento);
+	}
+
+
+}

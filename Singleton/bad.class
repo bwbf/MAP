@@ -1,0 +1,37 @@
+public class Aviao{
+
+	private Set<String> assentoDisponiveis;
+	
+	public Aviao(){
+		assentoDisponiveis =  new HashSet<>();
+		assentoDisponiveis.add("1A");
+		assentoDisponiveis.add("1B");
+	}
+	
+	public boolean bookAssento(String assento){
+		return assentoDisponiveis.remove(assento);
+	}
+	
+	
+
+
+}
+
+
+
+
+public class TesteAviao{
+	
+	public static void main(String[] args){
+		agendarAssento("1A");
+		agendarAssento("1A");
+	}
+	
+	private static void agendarAssento(String assento){
+		Aviao a = new Aviao();
+		//Neste caso ele rentorna TRUE nas duas chamadas
+		a.bookAssento(assento);
+	}
+
+
+}
